@@ -32,7 +32,8 @@ export default async function (req, res) {
       messages: [
         {
           role: "system",
-          content: "以下の単語をテーマに400字以上で論文を作成してください。",
+          content:
+            "以下の空白区切りで並べられている単語を適切な順番に並び替えて文章を作成してください。同時に翻訳もしてください。",
         },
         { role: "user", content: words },
       ],

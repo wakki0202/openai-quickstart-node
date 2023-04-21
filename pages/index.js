@@ -37,22 +37,28 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
+        <title>Word Rearrange Genius -並び替え問題専用アプリ-</title>
       </Head>
 
       <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
         <h3>Word Rearrange Genius</h3>
+        <p>
+          空白区切りで英単語を複数入力すると日本語訳付きで適切な順番に並び替えてくれるよ！（単語が足りない場合は補ってくれます）
+        </p>
+        <p>
+          例）I two have dogs ⇨ I have two dogs. (私は2匹の犬を飼っています。)
+        </p>
         <form onSubmit={onSubmit}>
           <input
             type="text"
             name="words"
-            placeholder="Enter an animal"
+            placeholder="空白区切りで単語を入力"
             value={wordsInput}
             onChange={(e) => setWordsInput(e.target.value)}
+            pattern="^[0-9a-zA-Z\s]+$"
+            required
           />
-          <input type="submit" value="Generate Essay" />
+          <input type="submit" value="並び替える" />
         </form>
         <div className={styles.result}>{result}</div>
       </main>
